@@ -12,7 +12,7 @@
       --primary-dark: #ee5a5a;
       --secondary: #2d3436;
       --accent: #ffeaa7;
-      --bg: #fffaf9;
+      --bg: #fef6f6;
       --card-bg: #ffffff;
       --text: #2d3436;
       --text-light: #636e72;
@@ -82,46 +82,36 @@
       padding: 120px 40px 80px;
       position: relative;
       overflow: hidden;
+      background: linear-gradient(180deg, #fff5f5 0%, #fef6f6 100%);
     }
     .hero::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -20%;
-      width: 70%;
-      height: 200%;
-      background: radial-gradient(ellipse, rgba(255,107,107,0.08) 0%, transparent 70%);
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,107,107,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -30%;
-      right: -10%;
-      width: 50%;
-      height: 150%;
-      background: radial-gradient(ellipse, rgba(255,234,167,0.2) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-content { position: relative; z-index: 1; max-width: 780px; }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
     .hero-badge {
       display: inline-block;
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
-      padding: 8px 22px;
+      padding: 10px 28px;
       border-radius: 50px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-      box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+      letter-spacing: 3px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 20px rgba(255,107,107,0.3);
     }
     .hero h1 {
-      font-size: clamp(42px, 7vw, 76px);
+      font-size: clamp(36px, 6vw, 64px);
       font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -1px;
+      line-height: 1.2;
       margin-bottom: 24px;
       color: var(--secondary);
     }
@@ -176,26 +166,31 @@
       transform: translateY(-2px);
       box-shadow: var(--shadow);
     }
-    .hero-tags {
+    .hero-stats {
       display: flex;
-      gap: 12px;
+      gap: 48px;
       justify-content: center;
-      margin-top: 32px;
-      flex-wrap: wrap;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(0,0,0,0.06);
     }
-    .hero-tag {
-      background: white;
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-size: 14px;
+    .stat { text-align: center; }
+    .stat-num {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 13px;
       color: var(--text-light);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin-top: 6px;
+      font-weight: 400;
     }
-    .hero-tag strong { color: var(--primary); }
 
-    /* Tech Stack */
-    .tech-section {
-      padding: 100px 40px;
+    /* Daily Love Section */
+    .daily-section {
+      padding: 80px 40px;
       background: white;
     }
     .section-label {
@@ -220,100 +215,40 @@
       color: var(--text-light);
       font-size: 16px;
       max-width: 520px;
-      margin: 0 auto 56px;
+      margin: 0 auto 48px;
       font-weight: 300;
     }
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
+    .daily-card {
+      max-width: 900px;
       margin: 0 auto;
-    }
-    .tech-card {
       background: var(--bg);
-      border-radius: 20px;
-      padding: 32px 24px;
-      text-align: center;
-      border: 1px solid rgba(0,0,0,0.04);
-      transition: all 0.3s ease;
-    }
-    .tech-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: rgba(255,107,107,0.15);
-    }
-    .tech-icon {
-      font-size: 36px;
-      margin-bottom: 16px;
-      display: block;
-    }
-    .tech-name {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--secondary);
-      margin-bottom: 6px;
-    }
-    .tech-desc {
-      font-size: 13px;
-      color: var(--text-light);
-      font-weight: 300;
-    }
-
-    /* Screenshots */
-    .shots-section {
-      padding: 100px 40px;
-      background: var(--bg);
-    }
-    .shots-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    @media (max-width: 900px) {
-      .shots-grid { grid-template-columns: 1fr; }
-    }
-    .shot-card {
-      background: white;
-      border-radius: 20px;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-      transition: all 0.4s ease;
-      cursor: pointer;
+      box-shadow: var(--shadow);
     }
-    .shot-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-hover);
-    }
-    .shot-card img {
+    .daily-card img {
       width: 100%;
       display: block;
-      aspect-ratio: 16/10;
-      object-fit: cover;
-      transition: transform 0.4s ease;
     }
-    .shot-card:hover img { transform: scale(1.03); }
-    .shot-info {
-      padding: 18px 20px;
+    .daily-info {
+      padding: 32px;
+      text-align: center;
     }
-    .shot-title {
-      font-size: 15px;
+    .daily-info h3 {
+      font-size: 22px;
       font-weight: 700;
       color: var(--secondary);
+      margin-bottom: 12px;
     }
-    .shot-desc {
-      font-size: 13px;
+    .daily-info p {
       color: var(--text-light);
-      margin-top: 4px;
-      font-weight: 300;
+      font-size: 15px;
     }
 
     /* Features */
     .features-section {
       padding: 100px 40px;
-      background: white;
+      background: var(--bg);
     }
     .features-list {
       max-width: 1000px;
@@ -323,7 +258,7 @@
       gap: 24px;
     }
     .feature-card {
-      background: var(--bg);
+      background: white;
       border-radius: 20px;
       padding: 36px 28px;
       position: relative;
@@ -366,6 +301,57 @@
       color: var(--text-light);
       font-weight: 300;
       line-height: 1.7;
+    }
+
+    /* Screenshots */
+    .shots-section {
+      padding: 100px 40px;
+      background: white;
+    }
+    .shots-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) {
+      .shots-grid { grid-template-columns: 1fr; }
+    }
+    .shot-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: all 0.4s ease;
+      cursor: pointer;
+      border: 1px solid #f0f0f0;
+    }
+    .shot-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+    .shot-card img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .shot-card:hover img { transform: scale(1.03); }
+    .shot-info {
+      padding: 18px 20px;
+    }
+    .shot-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+    .shot-desc {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 4px;
+      font-weight: 300;
     }
 
     /* Contact / CTA */
@@ -485,8 +471,9 @@
 
     @media (max-width: 768px) {
       .hero { padding: 100px 24px 60px; }
+      .hero-stats { gap: 28px; }
       .nav-links { display: none; }
-      .tech-section, .shots-section, .features-section, .contact-section { padding: 70px 24px; }
+      .tech-section, .shots-section, .features-section, .contact-section, .daily-section { padding: 70px 24px; }
     }
   </style>
 </head>
@@ -497,9 +484,9 @@
   <div class="nav-inner">
     <a href="#" class="logo">壹寻</a>
     <ul class="nav-links">
-      <li><a href="#tech">技术架构</a></li>
-      <li><a href="#shots">截图预览</a></li>
+      <li><a href="#daily">每日情缘</a></li>
       <li><a href="#features">功能特点</a></li>
+      <li><a href="#shots">截图预览</a></li>
       <li><a href="#contact">联系我们</a></li>
     </ul>
   </div>
@@ -515,45 +502,83 @@
       <a href="#contact" class="btn-primary">
         🚀 立即体验
       </a>
-      <a href="#shots" class="btn-secondary">
-        了解更多
+      <a href="#daily" class="btn-secondary">
+        每日情缘
       </a>
     </div>
-    <div class="hero-tags">
-      <span class="hero-tag">🏃 <strong>运动搭子</strong></span>
-      <span class="hero-tag">🍜 <strong>美食搭子</strong></span>
-      <span class="hero-tag">✈️ <strong>旅游搭子</strong></span>
-      <span class="hero-tag">🎮 <strong>游戏搭子</strong></span>
-      <span class="hero-tag">💕 <strong>交友</strong></span>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">10K+</div>
+        <div class="stat-label">注册用户</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5K+</div>
+        <div class="stat-label">成功配对</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">98%</div>
+        <div class="stat-label">满意度</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Tech Stack -->
-<section class="tech-section" id="tech">
-  <div class="section-label">Technology Stack</div>
-  <h2 class="section-title">技术架构</h2>
-  <p class="section-sub">成熟可靠的技术选型，企业级开发的经典组合</p>
-  <div class="tech-grid">
-    <div class="tech-card">
-      <span class="tech-icon">☕</span>
-      <div class="tech-name">Spring Boot</div>
-      <div class="tech-desc">现代化 Java 开发框架，快速构建生产级应用</div>
+<!-- Daily Love -->
+<section class="daily-section" id="daily">
+  <div class="section-label">Daily Match</div>
+  <h2 class="section-title">每日情缘</h2>
+  <p class="section-sub">精选优质用户，算法匹配，精准推送有缘人</p>
+  
+  <div class="daily-card">
+    <img src="http://ww1.sinaimg.cn/large/006786h3gy1flahdrj08yj311c0hdna9.jpg" alt="每日情缘">
+    <div class="daily-info">
+      <h3>💕 今日最佳配对</h3>
+      <p>基于兴趣标签、地理位置、个人资料，智能匹配最合适的TA</p>
     </div>
-    <div class="tech-card">
-      <span class="tech-icon">🔐</span>
-      <div class="tech-name">Apache Shiro</div>
-      <div class="tech-desc">轻量级权限控制框架，安全认证与授权</div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features-section" id="features">
+  <div class="section-label">Core Features</div>
+  <h2 class="section-title">核心功能</h2>
+  <p class="section-sub">完整实现社交平台的关键业务场景</p>
+  <div class="features-list">
+    <div class="feature-card">
+      <div class="feature-num">01</div>
+      <div class="feature-icon">👥</div>
+      <div class="feature-title">用户注册登录</div>
+      <div class="feature-desc">完整的用户注册、登录流程，安全可靠的身份认证体系。</div>
     </div>
-    <div class="tech-card">
-      <span class="tech-icon">🎨</span>
-      <div class="tech-name">Thymeleaf</div>
-      <div class="tech-desc">Java 模板引擎，支持 HTML5 静态页面渲染</div>
+    <div class="feature-card">
+      <div class="feature-num">02</div>
+      <div class="feature-icon">📋</div>
+      <div class="feature-title">资料完善</div>
+      <div class="feature-desc">多维度个人资料填写，包括兴趣爱好、擅长领域、寻找类型等。</div>
     </div>
-    <div class="tech-card">
-      <span class="tech-icon">📷</span>
-      <div class="tech-name">FastDFS + Nginx</div>
-      <div class="tech-desc">分布式图片文件存储，高性能访问分发</div>
+    <div class="feature-card">
+      <div class="feature-num">03</div>
+      <div class="feature-icon">🔍</div>
+      <div class="feature-title">智能搜索</div>
+      <div class="feature-desc">按类型、地区、兴趣等条件精准筛选，快速找到合适的搭子。</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-num">04</div>
+      <div class="feature-icon">💕</div>
+      <div class="feature-title">匹配推荐</div>
+      <div class="feature-desc">基于用户画像和偏好设置，智能推荐可能感兴趣的用户。</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-num">05</div>
+      <div class="feature-icon">🖼️</div>
+      <div class="feature-title">相册管理</div>
+      <div class="feature-desc">支持多图上传，相册展示，记录精彩生活瞬间。</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-num">06</div>
+      <div class="feature-icon">🛡️</div>
+      <div class="feature-title">隐私保护</div>
+      <div class="feature-desc">完善的用户隐私保护机制，让交友更安心。</div>
     </div>
   </div>
 </section>
@@ -605,51 +630,6 @@
         <div class="shot-title">⚙️ 后台管理</div>
         <div class="shot-desc">平台管理后台，用户与内容审核</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- Features -->
-<section class="features-section" id="features">
-  <div class="section-label">Core Features</div>
-  <h2 class="section-title">核心功能</h2>
-  <p class="section-sub">完整实现社交平台的关键业务场景</p>
-  <div class="features-list">
-    <div class="feature-card">
-      <div class="feature-num">01</div>
-      <div class="feature-icon">👥</div>
-      <div class="feature-title">用户注册登录</div>
-      <div class="feature-desc">完整的用户注册、登录流程，安全可靠的身份认证体系。</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-num">02</div>
-      <div class="feature-icon">📋</div>
-      <div class="feature-title">资料完善</div>
-      <div class="feature-desc">多维度个人资料填写，包括兴趣爱好、擅长领域、寻找类型等。</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-num">03</div>
-      <div class="feature-icon">🔍</div>
-      <div class="feature-title">智能搜索</div>
-      <div class="feature-desc">按类型、地区、兴趣等条件精准筛选，快速找到合适的搭子。</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-num">04</div>
-      <div class="feature-icon">💕</div>
-      <div class="feature-title">匹配推荐</div>
-      <div class="feature-desc">基于用户画像和偏好设置，智能推荐可能感兴趣的用户。</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-num">05</div>
-      <div class="feature-icon">🖼️</div>
-      <div class="feature-title">相册管理</div>
-      <div class="feature-desc">支持多图上传，相册展示，记录精彩生活瞬间。</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-num">06</div>
-      <div class="feature-icon">🛡️</div>
-      <div class="feature-title">权限控制</div>
-      <div class="feature-desc">基于 Shiro 的细粒度权限管理，保障平台安全运行。</div>
     </div>
   </div>
 </section>
